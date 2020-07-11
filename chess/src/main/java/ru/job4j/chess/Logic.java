@@ -41,6 +41,17 @@ public class Logic {
         this.index = 0;
     }
 
+    private boolean isWayFree(Cell[] steps) {
+        boolean isFree = true;
+        for (Cell step : steps) {
+            if (findBy(step) != -1) {
+                isFree = false;
+                break;
+            }
+        }
+        return isFree;
+    }
+
     private int findBy(Cell cell) {
         int rst = -1;
         for (int index = 0; index != this.figures.length; index++) {
